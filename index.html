@@ -1,0 +1,787 @@
+<!-- 299 body menu -->
+
+
+<html>
+		<head>
+			<title>Mongezi Sibongakonke</title>
+			 <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/mngz47/productlists-resources/main/p_logo.jpg" />
+<meta name="author" content="@mongezisibongakonke" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		
+		</head>
+		<body>
+
+		<link rel="stylesheet" href="style.css">
+			<link rel="stylesheet" href="mobstyle.css">
+			<link rel="stylesheet" href="bootstrap.min.css">
+<script src="api.js" ></script>
+
+<div id=header class="header row" style="rgba(0,0,0,0.2);
+box-shadow: -1px -1px 7px 0px rgba(0,0,0,0.2);" >
+<div class="col-sm-3" >
+<div>
+<a href=index.html class="logo logo_start" ></a>
+<a href=index.html class="title logo" >Machine</a>
+<a href="#" onclick="toggleUpperScroll();return false;" class="toggleUpperScroll highlight" ></a>
+<a href="#" onclick="toggleSignIn();return false;" class="toggleSignIn highlight" ></a>
+</div>
+</div>
+<div class="col-sm-6" >
+    <script>
+
+function search(txt){
+
+/* var res = sendreq("https://mngz47.github.io/mongeziSibongakonke/game_data.json");
+					res.onload = function(){
+
+					if(res.responseText){
+						alert(res.responseText);
+			let jsonData = JSON.parse(res.responseText);
+		alert(jsonData["run"].length);
+			
+					}	
+					};
+	*/
+
+	var games = e('service_data').getElementsByTagName('div');
+
+	for(var a=0;a<games.length;a++){
+
+	var g_names =	games[a].getElementsByTagName('a');
+
+	for(var b=0;b<g_names.length;b++){
+
+		var game_name = g_names[b].textContent;//g_names[b].innerHTML;
+		
+		if(game_name.includes(txt) || game_name==txt){
+
+			e('search_results').appendChild(g_names[b]);
+		}else{
+			e('search_results').innerHTML = '';
+		}
+		
+	}
+	}	
+}
+	    
+    </script>
+<div class="upper_scroll row" >
+    <div class=col-sm-6 >
+       <input style="width:100%;height:30px;border:0px;padding:4px;" type=search onkeyup="search(this.value);" class=" shadow" id=search placeholder="search" />   
+    	<div id=search_results style="position:absolute;" ></div>
+    </div>
+  <div class=col-sm-6 style="padding-top:25px;font-size:1.2em;">
+<a class=space href=https://mngz47.github.io/mongeziSibongakonke/docs/ >Documentation</a>
+  </div>
+</div>
+
+
+</div>
+<div id=header_right class="col-sm-3">
+</div>
+</div>
+		
+<iframe id=tv src="https://mngz47.github.io/F-Snake/" style="width:100%;height:400px;border:2px solid yellow;" ></iframe>
+			<script>
+					e('tv').style.height = window.innerHeight+"px";
+				window.onresize = function(){
+					e('tv').style.height = window.innerHeight+"px";
+				};				
+			</script>
+<div class=row >
+<div style="width:80%;float:left;" >
+<a id=tv_title href=https://mngz47.github.io/F-Snake/ class="block" style="background-repeat:no-repeat;background-size:50px auto;background-postion:0 0;padding-left:55px;display:block;width:100%;" >F Snake</a>
+</div>
+<div style="width:18%;float:left;" >
+<a href=# onclick="next();return false;" class="block" style="width:100%;" >Next</a>
+</div>
+</div>
+
+<script>
+	var apps = 
+	    [ 
+		"https://mngz47.github.io/F-Snake/",
+	      "https://mngz47.github.io/pamel_slots",
+	      "https://mngz47.github.io/kasi_nametest/",
+	      "https://mngz47.github.io/cv_engine",
+		    "https://mngz47.github.io/business_plan_engine/",
+	      "https://agg-v3.herokuapp.com/paraphrase"
+	    ];
+	
+	var titles = [ "F Snake",
+		      "Pamel Slots",
+		      "Kasi Nametest",
+		      "Temp22 CV/Resume Engine", 
+		      "Business Plan Engine",
+		      "Paraphrase"
+		     ];
+	
+	var index = 0;
+	function next(){
+		if(index<apps.length){
+			e('tv').src = apps[index];
+			e('tv_title').innerHTML = titles[index];
+			e('tv_title').href = apps[index];
+			index++;
+		}else{
+		index = 0;	
+		}
+	}
+	
+	</script>
+	<script>
+		
+		function body_menu(service_id){
+			
+			var games = e(service_id).getElementsByTagName("a");
+			var gg = games[menu_index].href.split("/");
+
+			if(games[menu_index].href.includes("games")){
+				serve_menu(service_id,"games/"+gg[gg.length-2]);
+			}else{
+				serve_menu(service_id,gg[gg.length-1]);
+			}		
+		}
+		
+				var menu_index = 0;
+				
+				function serve_menu(service_id,name){
+					
+				var res =  sendreq_github_io(name+"/meta.json");
+					res.onload = function(){
+
+					if(res.responseText){
+				if(!res.responseText.includes("<!DOCTYPE")){
+			let jsonData = JSON.parse(res.responseText);
+
+						if(menu_index%2==0){
+e('menu').innerHTML += '<a class=block href='+jsonData["run"]+' style="animation: 20s slider infinite;" ><img src='+jsonData["cover_image"]+' width=200px />'+jsonData["title"]+'</a>';
+						}else{
+e('menu-text').innerHTML += '<div style="margin:5px;" ><a href='+jsonData["run"]+' style="font-size:2em; text-decoration: none;" >'+jsonData["title"]+'</a>'+jsonData["description"]+'...</div>';
+						}
+
+	if(menu_index < e(service_id).getElementsByTagName("a").length){
+		menu_index+=1; 
+		body_menu(service_id);
+	}
+
+					}
+					}	
+					};
+			
+	}
+				
+			//	serve_menu(menu[menu_index]);
+			</script>
+<div id=service_data class="row"  >
+<div id=services class="col-sm-3" >
+	<p>
+		<img id=cover_image src="https://mngz47.github.io/productlists-resources/Services.png" onerror="this.onerror=null; this.src='https://mngz47.github.io/productlists-resources/Services.png'" width=150px />
+	</p>
+		
+<a href="https://mngz47.github.io/F-Snake/" class=block onclick="service_meta('F-Snake');return false;" >F Snake</a>
+<a href="https://mngz47.github.io/pamel_slots/" class=block onclick="service_meta('pamel_slots');return false;" >Pamel Slots</a>
+<a href="https://mngz47.github.io/travis-slot-machine/" class=block onclick="service_meta('travis-slot-machine');return false;" >Travis Slot Machine</a>	
+<a href="https://mngz47.github.io/HangMan/" class=block onclick="service_meta('HangMan');return false;" >Hang Man Classic Game</a>	
+
+	<a href="https://mngz47.github.io/Slot-Machine/" class=block onclick="service_meta('Slot-Machine');return false;" >Joker Slot Machine</a>	
+	<a href="https://mngz47.github.io/mia-slot-machine/" class=block onclick="service_meta('mia-slot-machine');return false;" >Mia Slot Machine</a>	
+
+	<a href="https://mngz47.github.io/mega-slot/" class=block onclick="service_meta('mega-slot');return false;" >Dragon Mega Slot</a>	
+	<a href="https://mngz47.github.io/avatar-slots/" class=block onclick="service_meta('avatar-slots');return false;" >Avatar Slot Machine</a>	
+
+	<a href="https://mngz47.github.io/bieberpong-static/" class=block onclick="service_meta('bieberpong-static');return false;" >Bieber Pong</a>	
+	<a href="https://mngz47.github.io/html5-pong/" class=block onclick="service_meta('html5-pong');return false;" >Classic 2 Player Pong</a>	
+
+	<a href="https://mngz47.github.io/html5-asteroids/" class=block onclick="service_meta('html5-asteroids');return false;" >Shoot Asteroids</a>	
+	<a href="https://mngz47.github.io/Karma-Slots/" class=block onclick="service_meta('Karma-Slots');return false;" >Karma Slots</a>	
+
+	<a href="https://mngz47.github.io/Nirvana_Slot_Machine/" class=block onclick="service_meta('Nirvana_Slot_Machine');return false;" >Nirvana Slot Machine</a>	
+	<a href="https://mngz47.github.io/tahas-slot-machine/" class=block onclick="service_meta('tahas-slot-machine');return false;" >Tahas Slot Machine</a>	
+
+	<a href="https://mngz47.github.io/SnakesLadders/" class=block onclick="service_meta('SnakesLadders');return false;" >Snakes n Ladders</a>	
+
+<a href="https://mngz47.github.io/kasi_nametest/" class=block onclick="service_meta('kasi_nametest');return false;" >Kasi Nametest</a>
+<a href="https://mngz47.github.io/cv_engine/" class=block onclick="service_meta('cv_engine');return false;" >Temp22 CV Engine</a>
+<a href="https://mngz47.github.io/business_plan_engine/" class=block onclick="service_meta('business_plan_engine');return false;" >Business Plan Engine</a>
+<a href="https://mngz47.github.io/games/2048/" class=block onclick="service_meta('games/2048');return false;" >2048</a>
+<a href="https://mngz47.github.io/games/40963/" class=block onclick="service_meta('games/40963');return false;" >4096</a>
+<a href="https://mngz47.github.io/games/attackonball/" class=block onclick="service_meta('games/attackonball');return false;" >Attack on Ball</a>
+<a href="https://mngz47.github.io/games/blockdown/" class=block onclick="service_meta('games/blockdown');return false;" >Block Down</a>
+<a href="https://mngz47.github.io/games/bottle3/" class=block onclick="service_meta('games/bottle3');return false;" >Falling Bottle Test</a>
+<a href="#" class=block onclick="e('services-2').style.display='';body_menu('services');return false;" >More</a>
+
+<div id=services-2 style="display:none;" >
+<a href="https://mngz47.github.io/games/breaklovers/" class=block onclick="service_meta('games/breaklovers');return false;" >Break Lovers Shooting Game</a>
+<a href="https://mngz47.github.io/games/breakout3/" class=block onclick="service_meta('games/breakout3');return false;" >Breakout 3</a>
+<a href="https://mngz47.github.io/games/candy/" class=block onclick="service_meta('games/candy');return false;" >Monster Wants Candy</a>
+<a href="https://mngz47.github.io/games/circlepath/" class=block onclick="service_meta('games/circlepath');return false;" >Circle Path</a>
+<a href="https://mngz47.github.io/games/eatball/" class=block onclick="service_meta('games/eatball');return false;" >Eat Ball</a>
+<a href="https://mngz47.github.io/games/eliminate/" class=block onclick="service_meta('games/eliminate');return false;" >Eliminate</a>
+<a href="https://mngz47.github.io/games/fctank/" class=block onclick="service_meta('games/fctank');return false;" >FC Tank</a>
+<a href="https://mngz47.github.io/games/flappybird/" class=block onclick="service_meta('games/flappybird');return false;" >Flappy Bird</a>
+<a href="https://mngz47.github.io/games/flappybird3/" class=block onclick="service_meta('games/flappybird');return false;" >Flappy Bird 3</a>
+<a href="https://mngz47.github.io/games/fruit/" class=block onclick="service_meta('games/fruit');return false;" >Fruit Ninja</a>	
+<a href="#" class=block onclick="e('services-3').style.display='';body_menu('services-2');return false;" >More</a>
+</div>
+
+	<div id=services-3 style="display:none;" >
+<a href="https://mngz47.github.io/games/fruitwar/" class=block onclick="service_meta('games/fruitwar');return false;" >Fruit War</a>
+<a href="https://mngz47.github.io/games/getcockscomb/" class=block onclick="service_meta('games/getcockscomb');return false;" >Get Cocks Comb</a>
+<a href="https://mngz47.github.io/games/hitball/" class=block onclick="service_meta('games/hitball');return false;" >Hit Ball</a>
+<a href="https://mngz47.github.io/games/hitgraywolf3/" class=block onclick="service_meta('games/hitgraywolf3');return false;" >Hit Gray Wolf</a>
+<a href="https://mngz47.github.io/games/jokingyou/" class=block onclick="service_meta('games/jokingyou');return false;" >Joking You</a>
+<a href="https://mngz47.github.io/games/kite/" class=block onclick="service_meta('games/kite');return false;" >Kite</a>
+<a href="https://mngz47.github.io/games/knifehit3/" class=block onclick="service_meta('games/knifehit3');return false;" >Knife Hit 3</a>
+<a href="https://mngz47.github.io/games/kupao/" class=block onclick="service_meta('games/kupao');return false;" >Kupao</a>
+<a href="https://mngz47.github.io/games/legendofwolf/" class=block onclick="service_meta('games/legendofwolf');return false;" >Legend of Wolf</a>
+<a href="https://mngz47.github.io/games/magicplain/" class=block onclick="service_meta('games/magicplain');return false;" >Magic Plain</a>	
+<a href="#" class=block onclick="e('services-4').style.display='';body_menu('services-3');return false;" >More</a>
+</div>
+
+		<div id=services-4 style="display:none;" >
+<a href="https://mngz47.github.io/3D-Maze-Game/" class=block onclick="service_meta('3D-Maze-Game');return false;" >Maze 3D</a>
+<a href="https://mngz47.github.io/games/maze/" class=block onclick="service_meta('games/maze');return false;" >Maze</a>
+<a href="https://mngz47.github.io/games/memory/" class=block onclick="service_meta('games/memory');return false;" >Memory</a>
+<a href="https://mngz47.github.io/games/minorminer/" class=block onclick="service_meta('games/minorminer');return false;" >Minor Miner</a>
+<a href="https://mngz47.github.io/games/mota/" class=block onclick="service_meta('games/mota');return false;" >Mota</a>
+<a href="https://mngz47.github.io/games/p2ball/" class=block onclick="service_meta('games/p2ball');return false;" >P2 Ball</a>
+<a href="https://mngz47.github.io/games/pacman/" class=block onclick="service_meta('games/pacman');return false;" >Pac Man</a>
+<a href="https://mngz47.github.io/games/petparty/" class=block onclick="service_meta('games/petparty');return false;" >Pet Party</a>
+<a href="https://mngz47.github.io/games/pixelstar/" class=block onclick="service_meta('games/pixelstar');return false;" >Pixel Star</a>
+<a href="https://mngz47.github.io/games/plane/" class=block onclick="service_meta('games/plane');return false;" >Plane</a>	
+<a href="#" class=block onclick="e('services-5').style.display='';body_menu('services-4');return false;" >More</a>
+</div>
+
+	<div id=services-5 style="display:none;" >
+<a href="https://mngz47.github.io/games/planewar/" class=block onclick="service_meta('games/planewar');return false;" >Plane War</a>
+<a href="https://mngz47.github.io/games/prize/" class=block onclick="service_meta('games/prize');return false;" >Prize Wheel</a>
+<a href="https://mngz47.github.io/games/puzzle/" class=block onclick="service_meta('games/puzzle');return false;" >Puzzle</a>
+<a href="https://mngz47.github.io/games/quickrush3/" class=block onclick="service_meta('games/quickrush3');return false;" >Quick Rush 3</a>
+<a href="https://mngz47.github.io/games/quitsmoke/" class=block onclick="service_meta('games/quitsmoke');return false;" >Quit Smoke</a>
+<a href="https://mngz47.github.io/games/rhythm/" class=block onclick="service_meta('games/rhythm');return false;" >Rhythm</a>
+<a href="https://mngz47.github.io/games/run/" class=block onclick="service_meta('games/run');return false;" >Run</a>
+<a href="https://mngz47.github.io/games/runrobot/" class=block onclick="service_meta('games/runrobot');return false;" >Run Robot</a>
+<a href="https://mngz47.github.io/games/russianblock/" class=block onclick="service_meta('games/russianblock');return false;" >Tetris</a>
+<a href="#" class=block onclick="e('services-6').style.display='';return false;" >More</a>
+</div>
+
+	<div id=services-6 style="display:none;" >
+<a href="https://mngz47.github.io/games/shenjingmao/" class=block onclick="service_meta('games/shenjingmao');return false;" >Shenjingmao</a>
+<a href="https://mngz47.github.io/games/shoot/" class=block onclick="service_meta('games/shoot');return false;" >Shoot</a>
+<a href="https://mngz47.github.io/games/simplechess/" class=block onclick="service_meta('games/simplechess');return false;" >Simplechess</a>
+<a href="https://mngz47.github.io/games/skeletonguard/" class=block onclick="service_meta('games/skeletonguard');return false;" >Skeletonguard</a>
+<a href="https://mngz47.github.io/games/snap/" class=block onclick="service_meta('games/snap');return false;" >Snap</a>
+<a href="https://mngz47.github.io/games/stardog/" class=block onclick="service_meta('games/stardog');return false;" >Stardog</a>
+<a href="https://mngz47.github.io/games/starship/" class=block onclick="service_meta('games/starship');return false;" >Starship</a>
+<a href="https://mngz47.github.io/games/susliks/" class=block onclick="service_meta('games/susliks');return false;" >Susliks</a>
+<a href="https://mngz47.github.io/games/swordart/" class=block onclick="service_meta('games/swordart');return false;" >Swordart</a>
+<a href="https://mngz47.github.io/games/tacit/" class=block onclick="service_meta('games/tacit');return false;" >Tacit</a>	
+<a href="#" class=block onclick="e('services-7').style.display='';return false;" >More</a>
+</div>
+
+	<div id=services-7 style="display:none;" >
+<a href="https://mngz47.github.io/games/tank/" class=block onclick="service_meta('games/tank');return false;" >Tank</a>
+<a href="https://mngz47.github.io/games/timberpig/" class=block onclick="service_meta('games/timberpig');return false;" >Timber Pig</a>
+<a href="https://mngz47.github.io/games/wipeglass/" class=block onclick="service_meta('games/wipeglass');return false;" >Wipe Glass</a>
+
+		<a href="https://mngz47.github.io/memory-game/" class=block onclick="service_meta('memory-game');return false;" >Memory Game</a>
+		<a href="https://mngz47.github.io/Nokia3310-Snake/" class=block onclick="service_meta('Nokia3310-Snake');return false;" >Nokia3310 Snake</a>
+		<a href="https://mngz47.github.io/chrome-trex-game/" class=block onclick="service_meta('chrome-trex-game');return false;" >Chrome Trex Game</a>
+		<a href="https://mngz47.github.io/candy-crush/" class=block onclick="service_meta('candy-crush');return false;" >Candy Crush</a>
+		<a href="https://mngz47.github.io/pac-man-2/" class=block onclick="service_meta('pac-man-2');return false;" >Pac Man 2</a>
+		<a href="https://mngz47.github.io/Tetris-Basic/" class=block onclick="service_meta('Tetris-Basic');return false;" >Tetris Basic</a>
+		<a href="https://mngz47.github.io/space-invaders/" class=block onclick="service_meta('space-invaders');return false;" >Space Invaders</a>
+		<a href="#" class=block onclick="e('services-8').style.display='';return false;" >More</a>
+	</div>
+
+	<div id=services-8 style="display:none;" >
+<a href="https://mngz47.github.io/HexGL-Racing/" class=block onclick="service_meta('HexGL-Racing');return false;" >HexGL Racing</a>
+<a href="https://mngz47.github.io/HTML5-Games/audio-game/" class=block onclick="service_meta('HTML5-Games/audio-game');return false;" >Virtual Keyboard Audio Game</a>
+<a href="https://mngz47.github.io/HTML5-Games/ball-shooting/" class=block onclick="service_meta('HTML5-Games/ball-shooting');return false;" >Basket Ball Shooting</a>
+
+		<a href="https://mngz47.github.io/HTML5-Games/box2d-car-game/" class=block onclick="service_meta('HTML5-Games/box2d-car-game');return false;" >Box 2d Car Game</a>
+		<a href="https://mngz47.github.io/HTML5-Games/canvas-untangle-game/" class=block onclick="service_meta('HTML5-Games/canvas-untangle-game');return false;" >Untangle Puzzle Game</a>
+		<a href="https://mngz47.github.io/HTML5-Games/count-99/" class=block onclick="service_meta('HTML5-Games/count-99');return false;" >Count 99</a>
+		<a href="https://mngz47.github.io/HTML5-Games/css3-matching-game/" class=block onclick="service_meta('HTML5-Games/css3-matching-game');return false;" >Matching Game</a>
+		<a href="https://mngz47.github.io/HTML5-Games/multiply-defense/" class=block onclick="service_meta('HTML5-Games/multiply-defense');return false;" >Multiply Defense</a>
+		<a href="https://mngz47.github.io/HTML5-Games/pingpoing/" class=block onclick="service_meta('HTML5-Games/pingpoing');return false;" >Multiplayer Ping Pong</a>
+		<a href="https://mngz47.github.io/HTML5-Games/rush/" class=block onclick="service_meta('HTML5-Games/rush');return false;" >Rush</a>
+		<a href="#" class=block onclick="e('services-9').style.display='';return false;" >More</a>
+	</div>
+
+	<div id=services-9 style="display:none;" >
+<a href="https://mngz47.github.io/elemental-one/" class=block onclick="service_meta('elemental-one');return false;" >Elemental One</a>
+<a href="https://mngz47.github.io/candyjam/" class=block onclick="service_meta('candyjam');return false;" >Candy Jam</a>
+	</div>
+	
+</div>
+<div class="content col-sm-9" style="padding:4px;font-size:1.3em;" >
+
+	<div id=description ></div>
+	<div id=menu ></div>
+	<div id=menu-text ></div>
+
+</div>
+</div>
+			<script>
+
+				function service_meta(name){
+				var res = sendreq(name+"game_data.json");
+					res.onload = function(){
+
+					if(res.responseText){
+					//	alert(res.responseText);
+			let jsonData = JSON.parse(res.responseText);
+			e('tv').src = jsonData["run"];
+			e('tv_title').innerHTML = jsonData["title"];
+			e('description').innerHTML = jsonData["description"];
+			e('cover_image').src = jsonData["cover_image"];
+			e('tv_title').href = jsonData["run"];
+					}	
+					};
+					
+					body_menu('services-'+Math.floor(Math.random()*8));
+			
+	}
+				
+			</script>
+			
+<div class="row" >
+<div class="content col-sm-9" >
+	<div style="padding:20px;" >
+		<div id='amazon_products' style='display:none' >
+		<span class=title >Introduction To Productlists</span>
+		<p>Productlists is a tech firm working towards solutions to free the youth. Enjoy our instant game service, product listings and reviews.</p>	
+		<span class=title >Kasi Nametest</span>
+		<p>South African local instant game - enter your name and find out with Mzansi kasi you are from.</p>
+		<span class=title >Recreational Activies In Newcastle South Africa</span>
+		<p>Get the latest business and tourist information about Newcastle. Learn about Accommodation, Job Recruitment and more.</p>
+		<span class=title >F-Snake Classic Productlists Game</span>
+		<p>Play our classic snake game with seven stages. Overcome the obstacle and score as much points as you can.</p>
+		<span class=title >F-Snake Classic Productlists Game</span>
+		<p>Play our classic snake game. As you progress in the stages the obstacle moves faster and faster.</p>
+		<span class=title >Touch Bistro Restaurant POS</span>
+		<p>Replace your printed out food menu with a digital tablet menu able to send orders directly to kitchen without calling for waiter.</p>
+		<span class=title >Touch Bistro Digital Menu and Payment</span>
+		<p>Collect more information during payment so you can resell your specials to frequent customers.</p>
+		<span class=title >CV Engine</span>
+		<p>Generate Your CV For FREE in 3 minutes and send it to your email.</p>
+		<span class=title >Stop Paying For Traffic.</span>
+		<p>Saas and other large companies that need to pay for advertising on a monthly basis can create a content division in their businesses.</p>	
+		<span class=title >Jungle Scout</span>
+		<p>Use the best tools to sell on Amazon, optimize your listing - access best selling keywords and automatic repricing.</p>
+		<span class=title >Adzooma</span>
+		<p>Automate and manage all your Google, Facebook and Microsoft Ads in one place. Award winning App.</p>
+		</div>
+		
+		<div class="video_plugin w3-animate-left" >
+<iframe id=yt_tv width="100%" ></iframe>
+<div class=row >
+<div style="width:80%;float:left;" >
+<a id=yt_title href=# onclick="nextVideo();return false;" class="block" style="background-repeat:no-repeat;background-size:50px auto;background-postion:0 0;padding-left:55px;display:block;width:100%;" ></a>
+</div>
+<div style="width:18%;float:left;" >
+<a href=# onclick="nextVideo();return false;" class="block" style="width:100%;" >next video</a>
+</div>
+</div>
+<script>
+     
+e('yt_tv').style.height = (e('yt_tv').offsetWidth*220/400)+'px';
+    
+e('yt_tv').onresize = function(){
+e('yt_tv').style.height = (e('yt_tv').offsetWidth*220/400)+'px';
+    };
+    
+var video_index = 0;
+
+var videos = 
+[
+'https://www.youtube.com/embed/HjDiASNwExU',
+'https://www.youtube.com/embed/B4RgQEuzcLY',
+'https://www.youtube.com/embed/4uU7UIrSFlg',
+'https://www.youtube.com/embed/T4vuh_kQvcA',
+'https://www.youtube.com/embed/bDqhFfTObsw',
+'https://www.youtube.com/embed/2HSbisFCLrk',
+'https://www.facebook.com/plugins/video.php?height=314&href=https%3A%2F%2Fweb.facebook.com%2Fproductlists.co.za%2Fvideos%2F830921624389241%2F&show_text=false&width=560',
+'https://www.youtube.com/embed/57kS-89h9-E',
+'https://www.youtube.com/embed/Joi5lIH3E4g',
+'https://www.youtube.com/embed/XDv6u7Pw3m4',
+'https://www.youtube.com/embed/lmrqxiq83pM'
+];
+
+e('yt_tv').src = videos[video_index];
+	
+e('yt_title').innerHTML = e('amazon_products').getElementsByTagName('span')[0].innerHTML;
+e('group_four_affiliate_video_dd').innerHTML = e('amazon_products').getElementsByTagName('p')[0].innerHTML;
+
+function nextVideo(){
+	if(video_index<(videos.length-1)){
+		video_index+=1;
+		 e('yt_tv').src = videos[video_index];
+		four_next(video_index);
+		e('yt_title').innerHTML = e('amazon_products').getElementsByTagName('span')[video_index].innerHTML;
+		e('group_four_affiliate_video_dd').innerHTML = e('amazon_products').getElementsByTagName('p')[video_index].innerHTML;
+	
+	}else{
+		video_index=0;
+		e('yt_tv').src = videos[video_index];
+		four_next(video_index);
+		e('yt_title').innerHTML = e('amazon_products').getElementsByTagName('span')[video_index].innerHTML;
+		e('group_four_affiliate_video_dd').innerHTML = e('amazon_products').getElementsByTagName('p')[video_index].innerHTML;
+	}
+}
+</script>
+</div>
+	</div>
+		</div>
+<div class="col-sm-3" >
+<iframe id=four_target style="width:120px;height:240px;" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" src="//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=productlists4-20&marketplace=amazon&region=US&placement=B07K39FRSL&asins=B07K39FRSL&linkId=065aee4d4dac6dbbe3ad4fe7adddc370&show_border=false&link_opens_in_new_window=false&price_color=333333&title_color=0066c0&bg_color=ffffff">
+    </iframe>
+<div class=forward >
+    <script>
+   
+    var affiliates =
+	[
+	    "https://mngz47.github.io/productlists-resources/banners/productlists.html",
+	    "https://mngz47.github.io/productlists-resources/banners/kasi_nametest.html",
+	    "https://mngz47.github.io/productlists-resources/banners/recreation.html",
+	    "https://mngz47.github.io/productlists-resources/banners/f_snake.html",
+	    "https://mngz47.github.io/productlists-resources/banners/f_snake.html",
+	    "https://mngz47.github.io/productlists-resources/banners/touchbistro2.html",
+	    "https://mngz47.github.io/productlists-resources/banners/touchbistro2.html",
+	    "https://mngz47.github.io/productlists-resources/banners/cv_engine2.html",
+	    "https://mngz47.github.io/productlists-resources/banners/free_traffic.html",
+	    "https://mngz47.github.io/productlists-resources/banners/jungle_scout2.html",
+	    "https://mngz47.github.io/productlists-resources/banners/adzooma.html",
+	];
+    
+    var index = 0;
+    
+    function four_next(index){
+      this.index = index;
+		if(index<affiliates.length){
+			e('four_target').src = affiliates[index];
+			index++;
+		}else{
+		index = 0;	
+		}
+	  }
+	    
+	    four_next(index);
+    </script>
+</div><div id=group_four_affiliate_video_dd style="padding:4px;font-size:1.3em;" >Productlists is a tech firm working towards solutions to free the youth. Enjoy our instant game service, product listings and reviews.</div>
+		</div>
+	</div></div>
+
+    <footer class="kilimanjaro_area">
+            <!-- Top Footer Area Start -->
+            <div class="foo_top_header_one section_padding_100_70">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                                <h5>About Us</h5>
+                                <p>Automation and instant game specialist.</p>
+                                <p>Avoid the obstacle and make it through the seven stages.</p>
+                            </div>
+                            <div class="kilimanjaro_part m-top-15">
+                                <h5>Social Links</h5>
+                                <ul class="kilimanjaro_social_links">
+                                    <li><a href="https://www.instagram.com/mongezisibongakonke"><i class="fa fa-facebook" aria-hidden="true"></i> Instagram</a></li>
+                                    <li><a href="https://www.youtube.com/sibongakonkemongezi1670"><i class="fa fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+                                    <li><a href="https://www.linkedin.com/in/mongezi-mafunda-5a5620108/"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                              
+                            </div>
+
+                            <div class="kilimanjaro_part m-top-15">
+                                <h5>Important Links</h5>
+                                <ul class="kilimanjaro_links">
+                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Terms & Conditions</a></li>
+                                   <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Help & Support</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                         
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                                <h5>Quick Contact</h5>
+                                <div class="kilimanjaro_single_contact_info">
+                                    <h5>Phone:</h5>
+                                    <p>+27 66 030 2956</p>
+                                </div>
+                                <div class="kilimanjaro_single_contact_info">
+                                    <h5>Email:</h5>
+                                    <p>mngz636@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="kilimanjaro_part">
+                                <h5>Latest Works</h5>
+                                <div class="kilimanjaro_works">
+                                    <a class="kilimanjaro_works_img" href="https://mngz47.github.io/kasi_nametest/"><img src="https://raw.githubusercontent.com/mngz47/productlists-resources/main/services/kasi_nametest.png" alt="Kasi Nametest" title="Kasi Nametest" width="70" ></a>
+                                    <a class="kilimanjaro_works_img" href="https://mngz47.github.io/F-Snake/"><img src="https://raw.githubusercontent.com/mngz47/productlists-resources/main/services/f-snake.png" alt="F Snake"  title="F Snake" width="70" ></a>
+                                    <a class="kilimanjaro_works_img" href="https://mngz47.github.io/cv_engine/"><img src="https://raw.githubusercontent.com/mngz47/productlists-resources/main/services/cv_engine.png" alt="CV Engine" title="CV Engine" width="70"></a>
+                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom Area Start -->
+            <div class=" kilimanjaro_bottom_header_one section_padding_50 text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>© All Rights Reserved by mngz47</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <style>
+
+            /*********footer*******************/
+            . kilimanjaro_area {
+                position: relative;
+                z-index: 1;
+            }
+
+            .foo_top_header_one {
+                background-color: #15151e;
+                color: #fff;
+            }
+
+            .section_padding_100_70 {
+                padding-top: 100px;
+                padding-bottom: 70px;
+            }
+
+            .foo_top_header_one {
+                color: #fff;
+            }
+
+            .kilimanjaro_part {
+                margin-bottom: 30px;
+            }
+
+            .foo_top_header_one .kilimanjaro_part > h5 {
+                color: #fff;
+            }
+
+            .kilimanjaro_part h4, .kilimanjaro_part h5 {
+                margin-bottom: 30px;
+            }
+
+            .kilimanjaro_single_contact_info > p, .kilimanjaro_single_contact_info > h5, .kilimanjaro_blog_area > a, .foo_top_header_one .kilimanjaro_part > p {
+                color: rgba(255,255,255,.5);
+            }
+
+            p, ul li, ol li {
+                font-weight: 300;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .kilimanjaro_bottom_header_one {
+                background-color: #111;
+            }
+
+            .section_padding_50 {
+                padding: 50px 0;
+            }
+
+            .kilimanjaro_bottom_header_one p {
+                color: #fff;
+                margin: 0;
+            }
+
+            p, ul li, ol li {
+                font-weight: 300;
+            }
+
+            .kilimanjaro_bottom_header_one a {
+                color: inherit;
+                font-size: 14px;
+            }
+
+            a, h1, h2, h3, h4, h5, h6 {
+                font-weight: 400;
+            }
+
+            .m-top-15 {
+                margin-top: 15px;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .kilimanjaro_widget > li {
+                display: inline-block;
+            }
+
+            p, ul li, ol li {
+                font-weight: 300;
+            }
+
+            ol li, ul li {
+                list-style: outside none none;
+            }
+
+            .kilimanjaro_widget a {
+                border: 1px solid #333;
+                border-radius: 6px;
+                color: #888;
+                display: inline-block;
+                font-size: 13px;
+                margin-bottom: 4px;
+                padding: 7px 12px;
+            }
+
+            ul {
+                margin: 0;
+                padding: 0;
+            }
+
+            .kilimanjaro_links a {
+                border-bottom: 1px solid #333;
+                color: rgba(255,255,255,.5);
+                display: block;
+                font-size: 13px;
+                margin-bottom: 5px;
+                padding-bottom: 10px;
+            }
+
+            .kilimanjaro_links a {
+                color: rgba(255,255,255,.5);
+                font-size: 13px;
+            }
+
+            top-15 {
+                margin-top: 15px;
+            }
+
+            .foo_top_header_one .kilimanjaro_part > h5 {
+                color: #fff;
+            }
+
+            .kilimanjaro_part h4, .kilimanjaro_part h5 {
+                margin-bottom: 30px;
+            }
+
+            .kilimanjaro_social_links > li {
+                display: inline-block;
+            }
+
+            p, ul li, ol li {
+                font-weight: 300;
+            }
+
+            .kilimanjaro_social_links a {
+                border: 1px solid #333;
+                border-radius: 6px;
+                color: #888;
+                display: inline-block;
+                font-size: 13px;
+                margin-bottom: 3px;
+                padding: 7px 12px;
+            }
+
+            .kilimanjaro_blog_area .kilimanjaro_date {
+                color: #27ae60;
+                font-size: 13px;
+                margin-bottom: 5px;
+            }
+
+            .kilimanjaro_blog_area > p {
+                color: rgba(255,255,255,.5);
+                line-height: 1.3;
+                margin-bottom: 0;
+            }
+
+            .kilimanjaro_works > a {
+                display: inline-block;
+                float: left;
+                position: relative;
+                width: 33.33333333%;
+                z-index: 1;
+            }
+
+            .kilimanjaro_thumb {
+                left: 0;
+                position: absolute;
+                top: 0;
+                width: 75px;
+            }
+
+            .kilimanjaro_links a i {
+                padding-right: 10px;
+            }
+            /* :: 18.0 Footer Area CSS */
+
+            .footer_area {
+                position: relative;
+                z-index: 1;
+            }
+
+            .footer_bottom p > i,
+            .footer_bottom p > a:hover {
+                color: #27ae60;
+            }
+
+            .social_links_area {
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                padding: 50px 0 30px 0;
+                text-align: center;
+                position: relative;
+                z-index: 1;
+            }
+
+                .social_links_area > a:hover {
+                    color: #27ae60;
+                }
+
+            .inline-style .social_links_area > a:hover {
+                background-color: transparent;
+                color: #27ae60;
+                border: 0px solid transparent;
+            }
+
+            .single_feature:hover .feature_text h4 {
+                color: #27ae60;
+            }
+
+            .kilimanjaro_blog_area {
+                border-bottom: 1px solid #333;
+                margin-bottom: 15px;
+                padding: 0 0 15px 90px;
+                position: relative;
+                z-index: 1;
+            }
+
+            .kilimanjaro_links a {
+                border-bottom: 1px solid #333;
+                color: rgba(255,255,255,.5);
+                display: block;
+                font-size: 13px;
+                margin-bottom: 5px;
+                padding-bottom: 10px;
+            }
+        </style>
+			
+		</body>
+	</html>

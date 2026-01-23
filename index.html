@@ -17,7 +17,7 @@
 <script src="api.js" ></script>
 
 <div id=header class="header row" style="rgba(0,0,0,0.2);
-box-shadow: -1px -1px 7px 0px rgba(0,0,0,0.2);" >
+box-shadow: -1px -1px 7px 0px rgba(0,0,0,0.2);" >Clock out 12:40 am CST
 <div class="col-sm-3" >
 <div>
 <a href=index.html class="logo logo_start" ></a>
@@ -147,7 +147,7 @@ function search(txt){
 				
 				function serve_menu(service_id,name){
 					
-				var res =  sendreq_github_io(name+"/meta.json");
+				var res =  sendreq(name+"/meta.json");
 					res.onload = function(){
 
 					if(res.responseText){
@@ -327,7 +327,7 @@ e('menu-text').innerHTML += '<div style="margin:5px;" ><a href='+jsonData["run"]
 			<script>
 
 				function service_meta(name){
-				var res = sendreq(name+"game_data.json");
+				var res = sendreq(name+"/data.json");
 					res.onload = function(){
 
 					if(res.responseText){
@@ -785,3 +785,4 @@ function nextVideo(){
 			
 		</body>
 	</html>
+

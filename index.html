@@ -170,7 +170,15 @@ e('menu-text').innerHTML += '<div style="margin:5px;" ><a href='+jsonData["run"]
 					};
 			
 	}
-				
+
+		var service_p = urlParams.get('service'); // '2'
+		if(service_p){
+
+				e("tv").src = "https://mngz47.github.io/"+service_p;
+				e("tv").focus();
+				e("tv_title").innerHTML = service_p;
+		}
+		
 			//	serve_menu(menu[menu_index]);
 			</script>
 <div id=service_data class="row"  >
@@ -548,6 +556,7 @@ function nextVideo(){
 			
 		</body>
 	</html>
+
 
 
 

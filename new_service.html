@@ -1,0 +1,168 @@
+
+<!-- 299 body menu -->
+
+
+<html>
+		<head>
+			<title>New Machine Service</title>
+			 <link rel="shortcut icon" type="image/jpg" href="https://raw.githubusercontent.com/mngz47/productlists-resources/main/p_logo.jpg" />
+<meta name="author" content="@mongezisibongakonke" />
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+		
+		</head>
+		<body>
+
+		<link rel="stylesheet" href="style.css">
+			<link rel="stylesheet" href="mobstyle.css">
+			<link rel="stylesheet" href="bootstrap.min.css">
+<script src="api.js" ></script>
+<script src="https://mngz47.github.io/2d-image-construct/api.js" ></script>
+			
+<div id=header class="header row" style="rgba(0,0,0,0.2);
+box-shadow: -1px -1px 7px 0px rgba(0,0,0,0.2);" >
+<div class="col-sm-3" >
+<div>
+<a href=index.html class="logo logo_start" ></a>
+<a href=index.html class="title logo" >New Service</a>
+<a href="#" onclick="toggleUpperScroll();return false;" class="toggleUpperScroll highlight" ></a>
+<a href="#" onclick="toggleSignIn();return false;" class="toggleSignIn highlight" ></a>
+</div>
+</div>
+<div class="col-sm-6" >
+    <script>
+
+function search(txt){
+
+/* var res = sendreq("https://mngz47.github.io/mongeziSibongakonke/game_data.json");
+					res.onload = function(){
+
+					if(res.responseText){
+						alert(res.responseText);
+			let jsonData = JSON.parse(res.responseText);
+		alert(jsonData["run"].length);
+			
+					}	
+					};
+	*/
+
+	var games = e('service_data').getElementsByTagName('div');
+
+	for(var a=0;a<games.length;a++){
+
+	var g_names =	games[a].getElementsByTagName('a');
+
+	for(var b=0;b<g_names.length;b++){
+
+		var game_name = g_names[b].textContent;//g_names[b].innerHTML;
+		
+		if(game_name.includes(txt) || game_name==txt){
+
+			e('search_results').appendChild(g_names[b]);
+		}else{
+			e('search_results').innerHTML = '';
+		}
+		
+	}
+	}	
+}
+	    
+    </script>
+<div class="upper_scroll row" >
+    <div class=col-sm-6 >
+       <input style="width:100%;height:30px;border:0px;padding:4px;" type=search onkeyup="search(this.value);" class=" shadow" id=search placeholder="search" />   
+    	<div id=search_results style="position:absolute;" ></div>
+    </div>
+  <div class=col-sm-6 style="padding-top:25px;font-size:1.2em;">
+<a class=space href=https://mngz47.github.io/mongeziSibongakonke/docs/ >Documentation</a>
+  </div>
+</div>
+
+
+</div>
+<div id=header_right class="col-sm-3">
+</div>
+</div>
+
+
+
+
+      
+ <footer class="kilimanjaro_area">
+            <!-- Top Footer Area Start -->
+            <div class="foo_top_header_one section_padding_100_70">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                                <h5>About Us <strong>instant game.</strong></h5>
+                                <p>Avoid the obstacle and make it through the seven stages.</p>
+                            </div>
+                            <div class="kilimanjaro_part m-top-15">
+                                <h5>Social Links</h5>
+                                <ul class="kilimanjaro_social_links">
+                                    <li><a href="https://www.instagram.com/mongezisibongakonke"><i class="fa fa-facebook" aria-hidden="true"></i> Instagram</a></li>
+                                    <li><a href="https://www.youtube.com/sibongakonkemongezi1670"><i class="fa fa-youtube" aria-hidden="true"></i> YouTube</a></li>
+                                    <li><a href="https://www.linkedin.com/in/mongezi-mafunda-5a5620108/"><i class="fa fa-linkedin" aria-hidden="true"></i> Linkedin</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                              
+                            </div>
+
+                            <div class="kilimanjaro_part m-top-15">
+                                <h5>Important Links</h5>
+                                <ul class="kilimanjaro_links">
+                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Terms & Conditions</a></li>
+                                   <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Help & Support</a></li>
+                                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>Privacy Policy</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                         
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-6 col-lg-3">
+                            <div class="kilimanjaro_part">
+                                <h5>Quick Contact</h5>
+                                <div class="kilimanjaro_single_contact_info">
+                                    <strong>Specialize in TikTok Audio campaigns:</strong>
+                                    <p><a href="https://discord.gg/hpSBRwWMQ5" >https://discord.gg/hpSBRwWMQ5</a></p>
+                                </div>
+                                <div class="kilimanjaro_single_contact_info">
+                                    <strong>Email:</strong>
+                                    <p><a href="mngz636@gmail.com" >mngz636@gmail.com</a></p>
+                                </div>
+                            </div>
+                            <div class="kilimanjaro_part">
+								  <!--
+                                <h5>Latest Works</h5>
+                                <div class="kilimanjaro_works">
+                                    <a class="kilimanjaro_works_img" href="https://mngz47.github.io/kasi_nametest/"><img src="https://raw.githubusercontent.com/mngz47/productlists-resources/main/services/kasi_nametest.png" alt="Kasi Nametest" title="Kasi Nametest" width="70" ></a>
+                                    <a class="kilimanjaro_works_img" href="https://mngz47.github.io/F-Snake/"><img src="https://raw.githubusercontent.com/mngz47/productlists-resources/main/services/f-snake.png" alt="F Snake"  title="F Snake" width="70" ></a>
+                                    <a class="kilimanjaro_works_img" href="https://mngz47.github.io/cv_engine/"><img src="https://raw.githubusercontent.com/mngz47/productlists-resources/main/services/cv_engine.png" alt="CV Engine" title="CV Engine" width="70"></a>
+                                 </div>
+								-->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer Bottom Area Start -->
+            <div class=" kilimanjaro_bottom_header_one section_padding_50 text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <p>© All Rights Reserved by mngz47</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+			<link rel="stylesheet" href="footer_style.css">
+			
+		</body>
+	</html>

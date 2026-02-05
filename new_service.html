@@ -86,13 +86,17 @@ function search(txt){
 			<script src=database.js ></script>
 
 <h2>New Machine Service</h2>
-<form class=form-control >
+
+			<div>
+
+				<form class=form-control >
 	<h4>User</h4>
 			<label>Name</label><input type=text id=name class=form-control />
 			<label>Country</label><input type=text id=country class=form-control />
 			<label>email</label><input type=text id=email class=form-control />
-			<button onclick="writeUserData('tt', e('name').text, e('country').text, e('email').text, 'yy');" ></button>
-</form>
+			<button onclick="writeUserData('tt', e('name').text, e('country').text, e('email').text, 'yy');" >new user</button>
+</form>	
+			</div>			
  <footer class="kilimanjaro_area">
             <!-- Top Footer Area Start -->
             <div class="foo_top_header_one section_padding_100_70">

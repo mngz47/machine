@@ -87,15 +87,21 @@ function search(txt){
 
 <h2>New Machine Service</h2>
 
-			<div>
+			<div class=row >
 
-				<form class=form-control >
+				<div class=col-sm-4 ></div>
+				<div class=col-sm-8 >
+
+<form class=form-control >
 	<h4>User</h4>
 			<label>Name</label><input type=text id=name class=form-control />
 			<label>Country</label><input type=text id=country class=form-control />
 			<label>email</label><input type=text id=email class=form-control />
 			<button onclick="writeUserData('tt', e('name').text, e('country').text, e('email').text, 'yy');return false;" >new user</button>
 </form>	
+					
+				</div>
+				
 			</div>			
  <footer class="kilimanjaro_area">
             <!-- Top Footer Area Start -->

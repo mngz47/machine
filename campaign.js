@@ -21,3 +21,5 @@ e('campaigns').innerHTML += '<p style="animation: 20s slider infinite;" > <h2>'+
 					};
 			
 	}
+
+read();

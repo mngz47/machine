@@ -1,7 +1,7 @@
 
 				function read(){
 					
-				var res =  sendreq("https://mngz47.github.io/machine/clipster_campaigns.json");
+				var res =  sendreq("machine/clipster_campaigns.json");
 					res.onload = function(){
 
 					if(res.responseText){

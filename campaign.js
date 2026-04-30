@@ -7,8 +7,9 @@
 					if(res.responseText){
 				if(!res.responseText.includes("<!DOCTYPE")){
 			let jsonData = JSON.parse(res.responseText);
-
-            alert(jsonData.length);
+					
+            alert("active campaigns("+jsonData.length+")");
+					
 						for(var a=0;a<jsonData.length;a++){
 
              var campaign = jsonData[a];

@@ -13,7 +13,7 @@
 
              var campaign = jsonData[a];
            
-e('campaigns').innerHTML += '<p style="animation: 20s slider infinite;" > <h2>'+campaign["title"]+'</h2> '+campaign["budget"]+','+campaign["rpm"]+'rpm <b> Audio: '+campaign["audio"]+' <b> Platform:  '+campaign["platform"]+'  <b> Allow Content: '+campaign["content"]+'</p>';
+e('campaigns').innerHTML += '<p style="animation: 20s slider infinite;" > <h2>'+campaign["title"]+'</h2> '+campaign["description"]+', <b> Audio: <a href='+campaign["audio"]+' >'+campaign["audio"]+'</a> <b> Platform:  '+campaign["platform"]+'  <b> Allow Content: '+campaign["allowed content"]+'</p>';
 						}
 
 					}

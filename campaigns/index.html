@@ -152,7 +152,49 @@ margin:3px;
 		
 	</style>
 </div>	
+<script>
 
+	var chat_count = 0;
+
+	var messages = e('clipper-chat').getElementByTagName('div');
+
+function start_clipper_chat(){
+for(var a=0;a<messages.length;a++){
+
+		messages[a].style.display = "none";
+	}
+reveal_chat();
+}
+	
+	function reveal_chat(){
+if(chat_count<messages.length){
+messages[chat_count].style.display = "";
+
+setTimeout(reveal_chat, 3000);
+	
+}else{
+chat_count = 0;
+	conceal_chat();
+}
+	chat_count+=1;	
+	}
+
+	function conceal_chat(){
+if(chat_count<messages.length){
+messages[chat_count].style.display = "";
+
+setTimeout(reveal_chat, 3000);
+	
+}else{
+chat_count = 0;
+	reveal_chat();
+}
+	chat_count+=1;	
+	}
+	
+	start_clipper_chat();
+	
+</script>
 <a href=https://mngz47.github.io/machine/new_campaign.html class="block form-control btn" ><h4>New Campaign</h4></a>
 					
 				</div>

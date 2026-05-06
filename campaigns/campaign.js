@@ -22,10 +22,11 @@
 									'\n Platform: '+campaign["platform"]+
 									')\n Allowed Content: '+campaign["allowed content"];
 
+								var discord_ref_description = campaign["description"].replace("<a href=https://app.clipster.gg/dashboard/auth?ref_code=mngz44 >[active]</a>","[active](https://app.clipster.gg/dashboard/auth?ref_code=mngz44)");
+									
+							
 							var camp_f_copy = campaign["title"]+'\n'+
-									campaign["description"].replace("<a href=https://app.clipster.gg/dashboard/auth?ref_code=mngz44 >[active]</a>
-","[active](https://app.clipster.gg/dashboard/auth?ref_code=mngz44)
-")+
+								discord_ref_description+
 									'\n Audio: ('+campaign["audio"]+
 									'\n Platform: '+campaign["platform"]+
 									')\n Allowed Content: '+campaign["allowed content"];

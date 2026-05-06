@@ -42,7 +42,7 @@ function quiz_item(question,option1,option2,option3,answer){
 
       "<div id=options >"+
 
-    
+     "<input type=checkbox/>";
 
     
     "</div>";

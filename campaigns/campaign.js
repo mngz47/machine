@@ -33,7 +33,7 @@
 
 							
 e('campaigns').innerHTML += '<p style="animation: 20s slider infinite;" >'+camp_f_web+'</p>';
-e('campaigns').innerHTML += '<a href="https://t.me/share/url?url=https://bit.ly/48GtBaZ&text='+camp_f_telegram+'" target="_blank">Share on Telegram</a> - <a onclick="navigator.clipboard.writeText(\''+camp_f_copy+'\');return false;" >Copy</a>';
+e('campaigns').innerHTML += '<a href="https://t.me/share/url?url=https://bit.ly/48GtBaZ&text='+camp_f_telegram+'" target="_blank">Share on Telegram</a> - <a onclick="navigator.clipboard.writeText(\''+camp_f_copy+'\');this.innerHTML=\'Copied\';return false;" >Copy</a>';
 							
 						}
 

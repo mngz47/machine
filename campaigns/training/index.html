@@ -11,6 +11,16 @@
 		</head>
 		<body>
 
+			<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-FW4M5RXDKZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-FW4M5RXDKZ');
+</script>
+			
 		<link rel="stylesheet" href="https://mngz47.github.io/machine/style.css" >
 			<link rel="stylesheet" href="https://mngz47.github.io/machine/mobstyle.css" >
 			<link rel="stylesheet" href="https://mngz47.github.io/machine/bootstrap.min.css" >
@@ -342,12 +352,13 @@ Specializing in long-term TikTok audio campaigns
 
 <b>display</b><br>
 	
-<input type=checkbox onchange=set_test_display("slideshow"); /><label>Slideshow</label><br>
-<input type=checkbox onchange=set_test_display("chat"); /><label>Chat</label><br>
-
+<input type=checkbox onchange=set_test_display("slideshow"); disabled=true /><label>Slideshow</label><br>
+<input type=checkbox onchange=set_test_display("chat"); disabled=true /><label>Chat</label><br>
+<input type=checkbox onchange=set_test_display("gform"); checked=true disabled=true /><label>Google Form</label><br>
+	
 </div>
 			  
-<a href=https://mngz47.github.io/machine/campaigns/training/test.html >Answer 50 questions</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSedjUBFNdBW7YqUlhUDTqDgu7jHk1Es4L8Q8Gb6fvF6YQfuNQ/viewform?usp=dialog" >Answer 50 questions</a><br>
 			  
 <i id=test-score >Release Score</i>
 

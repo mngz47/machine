@@ -46,55 +46,12 @@
 </div>
 </div>
 <div class="col-sm-6" >
-    <script>
-
-function search(txt){
-
-/* var res = sendreq("https://mngz47.github.io/mongeziSibongakonke/game_data.json");
-					res.onload = function(){
-
-					if(res.responseText){
-						alert(res.responseText);
-			let jsonData = JSON.parse(res.responseText);
-		alert(jsonData["run"].length);
-			
-					}	
-					};
-	*/
-
-	var games = e('service_data').getElementsByTagName('div');
-
-	for(var a=0;a<games.length;a++){
-
-	var g_names =	games[a].getElementsByTagName('a');
-
-	for(var b=0;b<g_names.length;b++){
-
-		var game_name = g_names[b].textContent;//g_names[b].innerHTML;
-		
-		if(game_name.includes(txt) || game_name==txt){
-
-			e('search_results').appendChild(g_names[b]);
-		}else{
-			e('search_results').innerHTML = '';
-		}
-		
-	}
-	}	
-}
-	    
-    </script>
-
        <div class="kilimanjaro_part" style="font-size:1.2em;padding:20px;"  >
 		<a href=https://mngz47.github.io/machine/campaigns/tools  class="space menu-item" >Tools</a>
 		<a href=https://mngz47.github.io/machine/campaigns/chats.html  class="space menu-item" >Chats</a>
     <a href=https://mngz47.github.io/machine/campaigns/training  class="space menu-item" >Training</a>
  <a href=https://mngz47.github.io/machine/campaigns/training/clips.html  class="space menu-item" >Clips</a>
 	</div>	
- 
-
-
-
 </div>
 <div id=header_right class="col-sm-3">
 </div>

@@ -83,7 +83,7 @@ text-decoration:none;
 }
 
 .header .heading {
-background-image: url(https://raw.githubusercontent.com/mngz47/productlists-resources/main/p_logo.jpg);
+background-image: url(https://mngz47.github.io/machine/pl_logo.jpg);
 background-repeat:no-repeat;
 background-position:0 0;
 background-size:40px;
@@ -94,7 +94,7 @@ padding-left:40px;
 }
 
 .header .logo {
-background-image: url(resources/logo.png);
+background-image: url(https://mngz47.github.io/machine/pl_logo.jpg);
 background-repeat:no-repeat;
 background-position:0 0;
 background-size:40px;
@@ -275,7 +275,7 @@ padding-bottom:20px;
 }
 
 .loader {
-background-image: url(https://www.productlists.co.za/resources/loader.gif);
+background-image: url(https://mngz47.github.io/machine/loader.gif);
 background-repeat:no-repeat;
 background-position:50% 50%;
 background-size:20px 20px;
@@ -333,7 +333,7 @@ text-align:center;
 }
 	
 .fshare {
-background-image: url(https://www.productlists.co.za/feature/shopping_cart/affiliate_logos/facebook.png);
+background-image: url(https://mngz47.github.io/machine/facebook.png);
 background-repeat:no-repeat;
 background-position:0 0;
 background-size:20px;

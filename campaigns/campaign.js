@@ -16,7 +16,7 @@
 
 							var camp_f_web = '<h2>'+campaign["title"]+'</h2> '+campaign["description"]+', <br> <label class=block >Audio:</label> <a href='+campaign["audio"]+' >'+campaign["audio"]+'</a> <br> <label class=block >Platform:</label>  '+campaign["platform"]+'  <br> <label class=block >Allowed Content:</label> '+campaign["allowed content"]+'';
 
-								var telegram_ref_description = campaign["description"].replace("<a href=https://app.clipster.gg/dashboard/auth?ref_code=mngz44 >[active]</a>","");
+								var telegram_ref_description = campaign["description"].replace("<a href=https://clipster.onelink.me/2HTk/invite?deep_link_value=ref%3Dmngz44 >[active]</a>","");
 								
 								var camp_f_telegram = campaign["title"]+'\n'+
 									telegram_ref_description+
@@ -24,7 +24,7 @@
 									'\n Platform: '+campaign["platform"]+
 									')\n Allowed Content: '+campaign["allowed content"];
 
-								var discord_ref_description = campaign["description"].replace("<a href=https://app.clipster.gg/dashboard/auth?ref_code=mngz44 >[active]</a>","[active](https://app.clipster.gg/dashboard/auth?ref_code=mngz44)");
+								var discord_ref_description = campaign["description"].replace("<a href=https://clipster.onelink.me/2HTk/invite?deep_link_value=ref%3Dmngz44 >[active]</a>","[active](https://clipster.onelink.me/2HTk/invite?deep_link_value=ref%3Dmngz44)");
 									
 							
 							var camp_f_copy = campaign["title"]+'\n'+

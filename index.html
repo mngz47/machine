@@ -27,49 +27,8 @@ box-shadow: -1px -1px 7px 0px rgba(0,0,0,0.2);" >
 </div>
 </div>
 <div class="col-sm-6" >
-    <script>
-
-function search(txt){
-
-/* var res = sendreq("https://mngz47.github.io/mongeziSibongakonke/game_data.json");
-					res.onload = function(){
-
-					if(res.responseText){
-						alert(res.responseText);
-			let jsonData = JSON.parse(res.responseText);
-		alert(jsonData["run"].length);
-			
-					}	
-					};
-	*/
-
-		 if(txt.length>4){
-			 
-	var games = e('service_data').getElementsByTagName('div');
-
-	for(var a=0;a<games.length;a++){
-
-	var g_names =	games[a].getElementsByTagName('a');
-
-	for(var b=0;b<g_names.length;b++){
-
-		var game_name = g_names[b].textContent;//g_names[b].innerHTML;
-		
-		if(game_name.toLowerCase().includes(txt.toLowerCase()) || game_name.toLowerCase()==txt.toLowerCase()){
-
-			e('search_results').appendChild(g_names[b]);
-		}else{
-			e('search_results').innerHTML = '';
-		}
-		
-	}
-	}	
-
-}
+    <script src=search.js ></script>
 	
-}
-	    
-    </script>
 <div class="upper_scroll row" >
     <div class=col-sm-6 >
        <input style="width:100%;height:30px;border:0px;padding:4px;" type=search onkeyup="search(this.value);" class=" shadow" id=search placeholder="search" />   
@@ -79,8 +38,6 @@ function search(txt){
 <a class=space href=https://mngz47.github.io/mongeziSibongakonke/docs/ >Documentation</a>
   </div>
 </div>
-
-
 </div>
 <div id=header_right class="col-sm-3">
 </div>

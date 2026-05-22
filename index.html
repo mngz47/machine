@@ -55,7 +55,7 @@ function search(txt){
 
 		var game_name = g_names[b].textContent;//g_names[b].innerHTML;
 		
-		if(game_name.includes(txt) || game_name==txt){
+		if(game_name.toLowerCase().includes(txt.toLowerCase()) || game_name.toLowerCase()==txt.toLowerCase()){
 
 			e('search_results').appendChild(g_names[b]);
 		}else{
